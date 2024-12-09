@@ -28,12 +28,18 @@ def p_declaration(p):
     '''declaration : TYPE ID SEMICOLON
                    | TYPE ID ASSIGN expression SEMICOLON'''
     if len(p) == 4:
+        # Declaración sin inicialización
         p.parser.symbol_table.add(p[2], p[1], None, "global")
         p[0] = ('declaration', p[1], p[2])
     elif len(p) == 6:
-        value = evaluate_expression(p[4], p.parser.symbol_table)
+        if isinstance(p[4], str):
+            value = p[4] 
+        else:
+            value = evaluate_expression(p[4], p.parser.symbol_table)
+
         p.parser.symbol_table.add(p[2], p[1], value, "global")
         p[0] = ('declaration_assignment', p[1], p[2], value)
+
 
 
 def p_assignment(p):
@@ -79,11 +85,14 @@ def evaluate_expression(expression, symbol_table):
         elif operator == "!=":
             return left != right
     elif isinstance(expression, str):
-        symbol = symbol_table.get(expression)
-        if symbol:
-            return symbol["Valor"]
+        if expression.startswith('"') and expression.endswith('"'):
+            return expression 
         else:
-            raise SyntaxError(f"Error: La variable '{expression}' no está declarada en el alcance 'global'.")
+            symbol = symbol_table.get(expression)
+            if symbol:
+                return symbol["Valor"]
+            else:
+                raise SyntaxError(f"Error: La variable '{expression}' no está declarada en el alcance 'global'.")
     else:
         return expression
 

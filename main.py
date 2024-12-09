@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, filedialog, messagebox
+from tkinter import ttk, filedialog, messagebox, PhotoImage
 from lexer import lexer, reset_lineno
 from parser import build_parser
 from tabla_simbolos import SymbolTable
@@ -140,6 +140,9 @@ app = tk.Tk()
 app.title("Compilador")
 app.geometry("1200x750")
 app.resizable(True, True)
+app.state("zoomed")
+icono = PhotoImage(file="compilador.png")
+app.iconphoto(True, icono)
 
 style = ttk.Style()
 style.configure("TButton", font=("Helvetica", 10), padding=5)
