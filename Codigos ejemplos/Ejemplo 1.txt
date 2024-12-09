@@ -1,0 +1,14 @@
+int x = 10;
+int y = 20;
+bool resultado;
+
+resultado = x < y;
+print("Comparación:");
+print(resultado); 
+
+if (resultado) {
+    print("x es menor que y.");
+} else {
+    print("x no es menor que y.");
+}
+

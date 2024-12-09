@@ -1,0 +1,13 @@
+int edadJuan = 25;
+int edadMaria = 30;
+bool esMayor;
+
+esMayor = edadJuan < edadMaria;
+print("Resultado de comparación:");
+print(esMayor);
+
+if (esMayor) {
+    print("Juan es menor que María.");
+} else {
+    print("Juan no es menor que María.");
+}

@@ -1,0 +1,22 @@
+int a = 15;
+int b = 25;
+int suma;
+int producto;
+bool resultado;
+
+suma = a + b;
+producto = a * b;
+resultado = suma > producto;
+
+print("Suma:");
+print(suma);
+print("Producto:");
+print(producto);
+print("Resultado de la comparación:");
+print(resultado);
+
+if (resultado) {
+    print("La suma es mayor que el producto.");
+} else {
+    print("El producto es mayor o igual a la suma.");
+}

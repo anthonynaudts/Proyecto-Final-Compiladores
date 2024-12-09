@@ -1,0 +1,17 @@
+int numeroUno = 10;
+float numeroDos = 5.5;
+float resultadoMult;
+bool esIgual;
+
+resultadoMult= numeroUno * numeroDos;
+print("El resultado de la multiplicación es:");
+print(resultadoMultiplicacion);
+
+esIgual = numeroUno == numeroDos;
+if (esIgual) {
+    print("Los números son iguales.");
+} else {
+    print("Los números no son iguales.");
+    print("Diferencia entre los números:");
+    print(numeroUno - numeroDos);
+}
